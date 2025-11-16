@@ -1,0 +1,17 @@
+{
+  "license": "ISC",
+  "scripts": {
+    "clean": "tsx scripts/clean.ts",
+    "quick-start": "tsx scripts/quick-start.ts"
+  },
+  "devDependencies": {
+    "@tsconfig/node20": "^20.1.7",
+    "@types/archiver": "^7.0.0",
+    "@types/node": "^22.10.2",
+    "@types/semver": "^7.7.1",
+    "archiver": "^7.0.1",
+    "glob": "^11.0.0",
+    "semver": "^7.7.3",
+    "tsx": "^4.19.3"
+  }
+}
