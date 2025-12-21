@@ -3,6 +3,7 @@ import semver from 'semver';
 import * as fs from 'node:fs/promises';
 import * as os from 'node:os';
 import * as path from 'node:path';
+import { glob } from 'glob';
 
 interface QuickStart {
     path: string;
@@ -28,6 +29,24 @@ async function clearLogs(quickStart: QuickStart): Promise<void> {
     await Promise.all(
         logFiles.map((file) => fs.unlink(path.join(logsPath, file)))
     );
+}
+
+async function clearTempFiles(quickStart: QuickStart): Promise<void> {
+    console.log(' - Clearing temp files...');
+
+    const localPath = path.join(quickStart.path, 'local');
+    const patterns = [
+        '~$*',
+        '._*',
+        '.DS_Store',
+    ];
+
+    for await (let pattern of patterns) {
+        const files = await glob(path.join(localPath, '**', pattern));
+        for await (let file of files) {
+            await fs.rm(file);
+        }
+    }
 }
 
 async function createDistDirectory(): Promise<string> {
@@ -128,14 +147,15 @@ async function main() {
 
     console.log(`Building Quick Start from ${quickStart.version}`);
 
-    // remove all logs
+    // clean files
     await clearLogs(quickStart);
+    await clearTempFiles(quickStart);
 
     // ensure output directory exists
     const distPath = await createDistDirectory();
 
     // create zip
-    const destPath = path.join(distPath, `owlcms-${quickStart.version}+nemikor-usaw.zip`);
+    const destPath = path.join(distPath, `${quickStart.version}+nemikor-usaw.zip`);
     await zip({
         destPath,
         quickStart,
