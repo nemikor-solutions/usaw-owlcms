@@ -155,7 +155,7 @@ async function main() {
     const distPath = await createDistDirectory();
 
     // create zip
-    const destPath = path.join(distPath, `owlcms-${quickStart.version}+nemikor-usaw.zip`);
+    const destPath = path.join(distPath, `owlcms_${quickStart.version}+nemikor-usaw.zip`);
     await zip({
         destPath,
         quickStart,
