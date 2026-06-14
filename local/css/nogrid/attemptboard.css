@@ -75,19 +75,18 @@
 	padding: 0; /* Logical */
 	line-height: 12vh;
 	justify-self: start;
-	font-size: 10vh;
-	grid-area: firstName-start/firstName-start/firstName-end/firstName-end;
+	font-size: min(10vh, 7vw);
+	grid-area: firstName-start/firstName-start/firstName-end/name-end;
 	white-space: normal;
 	overflow: hidden;
 	font-weight: normal;
-	max-width: 76vw;
 	max-height: 12vh;
 	display: block;
 }
 
 .attemptBoard .firstNameWithPicture {
 	justify-self: start;
-	font-size: 9vh;
+	font-size: min(9vh, 7vw);
 	line-height: 10vh;
 	font-weight: normal;
 	grid-area: firstName-start/firstName-start/firstName-end/timer-start;
@@ -165,7 +164,7 @@
 .attemptBoard .flagWithPicture {
 	justify-self: center;
 	justify-content: center;
-	align-self: start;
+	align-self: center;
 	grid-area: teamName-start/barbell-start/barbell-start/barbell-end;
 	z-index: 0;
 	place-items: center;
@@ -176,7 +175,7 @@
 }
 .attemptBoard .flagWithPicture > img {
 	height: 18vh;
-	align-self: start;
+	align-self: center;
 }
 
 /* Apply border only when the flag container actually has an image */
@@ -322,9 +321,9 @@
 	justify-self: stretch;
 }
 
-.wrapper .branding {
+/* .wrapper .branding {
 	display: none;
-}
+} */
 
 @media screen and (max-width: 1300px) {
 	.attemptBoard .weight {
@@ -344,6 +343,12 @@
 	grid-area: timer-start/timer-start/timer-end/timer-end;
 	align-self: center;
 	justify-self: center;
+	min-width: 5ch;
+	text-align: center;
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+	font-feature-settings: "tnum";
+	font-kerning: none;
 }
 
 @media screen and (max-width: 1025px) {
