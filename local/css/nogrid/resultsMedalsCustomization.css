@@ -15,17 +15,17 @@
     /* left column width: adjust depending on how you name groups */
       --startWidth: 0em;
       --startVisibility: hidden;
-    
+
     /* spacers */
     --spacerWidth: 1vh;
 
     /* normally these do not need to change */
-    --categoryWidth: 10ch;
+    --categoryWidth: minmax(12ch, max-content);
     --liftResultWidth: 6ch;
 
-    /* to show these columns 
+    /* to show these columns
     - change hidden to visible
-    - set the width to value like 8ch 
+    - set the width to value like 8ch
     */
     --birthWidth: 6ch;
     --birthVisibility: visible;
@@ -38,7 +38,7 @@
     --rankVisibility: visible;
     --totalRankWidth: var(--liftResultWidth);
     --totalRankVisibility: visible;
-    
+
     --bestWidth: var(--liftResultWidth);
     --bestVisibility: visible;
 
@@ -60,10 +60,10 @@
     --medalFrameSize: 0.18em;
     --medalSize: 1.75em;
 
-    
-/*  
+
+/*
     --TotalBackgroundColor: var(--lightNameBackgroundColor);
-    --TotalTextColor: var(--lightNameTextColor); 
+    --TotalTextColor: var(--lightNameTextColor);
  */
 }
 
